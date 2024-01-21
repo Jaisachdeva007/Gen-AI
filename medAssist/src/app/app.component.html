@@ -1,6 +1,11 @@
-<div class="chat-container">
+  <!-- <img src="../assets/hospital.jpg" width="260px"> -->
+  <!-- <img class="bg-class" src="./assets/hospital.jpg"> -->
+  <div class="background-container">
+    <img src="./assets/hospital.png" alt="Hospital Background" class="background-image-hospital">
+    <img src="./assets/NN.png" alt="Your New Background Image" class="background-image-new">
+    <div class="chat-container">
   <div class="chat-header">
-    Nurse Navigator
+    NURSE NAVIGATOR
   </div>
   <div class="chat-messages" id="chatMessages">
     <!-- Chat messages will appear here -->
@@ -10,7 +15,8 @@
     <div class="loading" *ngIf="loading">Loading...</div>
   </div>
   <div class="input-container">
-    <input type="text" class="input-box" #userInput placeholder="Type your Message...">
+    <input type="text" class="input-box" #userInput placeholder="Type your Message..." (keyup.enter)="userInput.value && sendMessage(userInput.value); userInput.value=''">
     <button class="send-button" (click)="sendMessage(userInput.value); userInput.value=''">Send</button>
   </div>
+</div>
 </div>
