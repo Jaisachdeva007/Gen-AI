@@ -1,0 +1,16 @@
+<div class="chat-container">
+  <div class="chat-header">
+    Nurse Navigator
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <!-- Chat messages will appear here -->
+    <div *ngFor="let message of chatHistory" [ngClass]="{'user-message': message.role === 'user', 'bot-message': message.role === 'assistant'}">
+      {{ message.role === 'assistant' ? 'Assistant: ' : 'You: ' }} {{ message.content }}
+    </div>
+    <div class="loading" *ngIf="loading">Loading...</div>
+  </div>
+  <div class="input-container">
+    <input type="text" class="input-box" #userInput placeholder="Type your Message...">
+    <button class="send-button" (click)="sendMessage(userInput.value); userInput.value=''">Send</button>
+  </div>
+</div>
