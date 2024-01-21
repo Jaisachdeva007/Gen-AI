@@ -8,6 +8,10 @@
     NURSE NAVIGATOR
   </div>
   <div class="chat-messages" id="chatMessages">
+
+    <ng-container *ngIf="chatHistory.length === 0">
+      <img src="./assets/message-bg.png" alt="Empty Chat Image" class="empty-chat-image">
+    </ng-container>
     <!-- Chat messages will appear here -->
     <div *ngFor="let message of chatHistory" [ngClass]="{'user-message': message.role === 'user', 'bot-message': message.role === 'assistant'}">
       {{ message.role === 'assistant' ? 'Assistant: ' : 'You: ' }} {{ message.content }}
